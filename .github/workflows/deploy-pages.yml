@@ -13,6 +13,7 @@ jobs:
         with:
           pattern: butane-*
           path: _site
+          merge-multiple: true
 
       - name: Upload all artifacts for GitHub Pages
         uses: actions/upload-pages-artifact@v3
