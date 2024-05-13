@@ -33,7 +33,7 @@ jobs:
             quay.io/coreos/butane:release \
             --pretty \
             --strict \
-            < ${{ inputs.path }}
+            < ${{ inputs.path }} \
             > ${{ inputs.name }}.ign
 
       - name: Upload the produced Ignition file as artifact
