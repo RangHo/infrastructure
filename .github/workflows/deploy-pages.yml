@@ -11,7 +11,7 @@ jobs:
       - name: Download Butane artifacts
         uses: actions/download-artifact@v4
         with:
-          name: butane-*
+          pattern: butane-*
           path: _site
 
       - name: Upload all artifacts for GitHub Pages
