@@ -17,7 +17,10 @@ jobs:
     name: Build Butane configurations
     runs-on: ubuntu-latest
 
-    steps:
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Build the main Butane file
         run: |
           docker pull quay.io/coreos/butane:release
