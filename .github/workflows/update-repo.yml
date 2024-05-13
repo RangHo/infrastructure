@@ -4,7 +4,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   build-butane:
-    name: Build Butane configurations
+    name: Build Butane configuration for Espresso
     uses: ./.github/workflows/build-butane.yml
     with:
       path: espresso/main.bu

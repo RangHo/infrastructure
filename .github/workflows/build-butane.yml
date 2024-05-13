@@ -23,6 +23,7 @@ jobs:
 
       - name: Build the main Butane file
         run: |
+          cat ${{ inputs.path }}
           docker pull quay.io/coreos/butane:release
           docker run \
             --interactive \
