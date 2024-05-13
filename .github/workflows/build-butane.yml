@@ -20,13 +20,14 @@ jobs:
     steps:
       - name: Build the main Butane file
         run: |
-          podman pull quay.io/coreos/butane:release
-          podman run \
+          docker pull quay.io/coreos/butane:release
+          docker run \
             --interactive \
             --rm \
             --security-opt label=disable \
-            --volume ${PWD}:/pwd \
-            --workdir /pwd quay.io/coreos/butane:release \
+            --volume ${{ github.workspace }}:/pwd \
+            --workdir /pwd \
+            quay.io/coreos/butane:release \
             --output "${{ inputs.name }}.ign"
             --pretty \
             --strict \
