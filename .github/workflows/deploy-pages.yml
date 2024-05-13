@@ -1,0 +1,21 @@
+name: Deploy to GitHub Pages
+
+on: workflow_call
+
+jobs:
+  main:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Butane artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: butane-*
+          path: _site
+
+      - name: Upload all artifacts for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

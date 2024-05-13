@@ -1,0 +1,39 @@
+name: Build Butane configurations
+
+on:
+  workflow_call:
+    inputs:
+      path:
+        description: Path to the main Butane file.
+        required: true
+        type: string
+      name:
+        description: Name of the produced Ignition file wihtout the extension.
+        required: true
+        type: string
+
+jobs:
+  main:
+    name: Build Butane configurations
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build the main Butane file
+        run: |
+          podman pull quay.io/coreos/butane:release
+          podman run \
+            --interactive \
+            --rm \
+            --security-opt label=disable \
+            --volume ${PWD}:/pwd \
+            --workdir /pwd quay.io/coreos/butane:release \
+            --output "${{ inputs.name }}.ign"
+            --pretty \
+            --strict \
+            ${{ inputs.path }}
+
+      - name: Upload the produced Ignition file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: butane-${{ inputs.name }}
+          path: ${{ inputs.name }}.ign

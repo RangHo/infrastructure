@@ -1,0 +1,19 @@
+name: Update repository
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build-butane:
+    name: Build Butane configurations
+    uses: ./.github/workflows/build-butane.yml
+    with:
+      path: espresso/main.bu
+      name: espresso
+    secrets: inherit
+
+  deploy-pages:
+    name: Deploy the artifacts to GitHub Pages
+    needs:
+      - build-butane
+    uses: ./.github/workflows/deploy-pages.yml
+    secrets: inherit
