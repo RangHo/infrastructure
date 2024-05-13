@@ -2,6 +2,11 @@ name: Update repository
 
 on: [push, workflow_dispatch]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-butane:
     name: Build Butane configuration for Espresso
