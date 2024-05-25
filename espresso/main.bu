@@ -3,8 +3,21 @@
 variant: fcos
 version: 1.5.0
 
-passwd:
-  users:
-    - name: core
-      ssh_authorized_keys:
-        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDp3jabbZ5hZklyRmJnqBSO1J50lqTEyqKeBa0T/3v/2
+ignition:
+  config:
+    merge:
+      - source: https://by.rangho.dev/jumpstart/passwd/from-github?name=RangHo
+
+storage:
+  disks:
+    - device: /dev/disk/by-path/pci-0000:00:1f.2-ata-1
+      wipe_table: true
+      partitions:
+        - label: espresso-variable
+  filesystems:
+    - device: /dev/disk/by-partlabel/espresso-variable
+      label: espresso-variable
+      format: ext4
+      wipe_filesystem: false
+      path: /var
+      with_mount_unit: true
