@@ -21,3 +21,8 @@ storage:
       wipe_filesystem: false
       path: /var
       with_mount_unit: true
+  files:
+    - path: /etc/hostname
+      mode: 0644
+      contents:
+        inline: RangHo-Espresso
