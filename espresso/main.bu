@@ -13,10 +13,10 @@ storage:
     - device: /dev/disk/by-path/pci-0000:00:1f.2-ata-1
       wipe_table: true
       partitions:
-        - label: espresso-variable
+        - label: espresso-var
   filesystems:
-    - device: /dev/disk/by-partlabel/espresso-variable
-      label: espresso-variable
+    - device: /dev/disk/by-partlabel/espresso-var
+      label: espresso-var
       format: ext4
       wipe_filesystem: false
       path: /var
