@@ -5,7 +5,7 @@ on:
     inputs:
       basedir:
         description: Base directory that contains all local files, including the main Butane file.
-        requried: true
+        required: true
         type: string
       bu:
         description: Name of the input Butane file, sans extension.
