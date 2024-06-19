@@ -29,14 +29,14 @@ storage:
 
     # CUPS daemon
     - path: /etc/containers/systemd/cupsd.container
-    contents: |
-      [Unit]
-      Description=CUPS Daemon
-      Wants=network-online.target
-      After=network-online.target
+      contents: |
+        [Unit]
+        Description=CUPS Daemon
+        Wants=network-online.target
+        After=network-online.target
 
-      [Container]
-      ContainerName=cupsd
-      Image=docker.io/olbat/cupsd
-      PublishPort=631
-      AddDevice=/dev/usb/lp0
+        [Container]
+        ContainerName=cupsd
+        Image=docker.io/olbat/cupsd
+        PublishPort=631
+        AddDevice=/dev/usb/lp0
