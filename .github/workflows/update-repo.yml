@@ -12,8 +12,9 @@ jobs:
     name: Build Butane configuration for Espresso
     uses: ./.github/workflows/build-butane.yml
     with:
-      path: espresso/main.bu
-      name: espresso
+      basedir: espresso
+      bu: main
+      ign: espresso
     secrets: inherit
 
   deploy-pages:

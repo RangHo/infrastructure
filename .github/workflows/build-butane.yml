@@ -3,12 +3,16 @@ name: Build Butane configurations
 on:
   workflow_call:
     inputs:
-      path:
-        description: Path to the main Butane file.
+      basedir:
+        description: Base directory that contains all local files, including the main Butane file.
+        requried: true
+        type: string
+      bu:
+        description: Name of the input Butane file, sans extension.
         required: true
         type: string
-      name:
-        description: Name of the produced Ignition file wihtout the extension.
+      ign:
+        description: Name of the output Ignition file, sans extension.
         required: true
         type: string
 
@@ -17,7 +21,7 @@ jobs:
     name: Build Butane configurations
     runs-on: ubuntu-latest
 
-    steps: 
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -33,8 +37,9 @@ jobs:
             quay.io/coreos/butane:release \
             --pretty \
             --strict \
-            < ${{ inputs.path }} \
-            > ${{ inputs.name }}.ign
+            --files-dir ${{ inputs.basedir }} \
+            < ${{ inputs.basedir }}/${{ inputs.bu }}.bu \
+            > ${{ inputs.ign }}.ign
 
       - name: Upload the produced Ignition file as artifact
         uses: actions/upload-artifact@v4
