@@ -39,5 +39,6 @@ storage:
           [Container]
           ContainerName=cupsd
           Image=docker.io/olbat/cupsd
-          PublishPort=631
-          AddDevice=/dev/usb/lp0
+          PublishPort=631:631
+          AddDevice=/dev/bus/usb
+          Podmanpod
