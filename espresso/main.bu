@@ -28,20 +28,12 @@ storage:
       contents:
         inline: RangHo-Espresso
 
+    # Enable mDNS support
+    - path: /etc/systemd/resolved.conf
+      contents:
+        local: systemd-resolved.conf
+
     # CUPS daemon quadlet
     - path: /etc/containers/systemd/quadlet-cupsd.container
       contents:
-        inline: |
-          [Unit]
-          Description=CUPS Daemon
-          Wants=network-online.target
-          After=network-online.target
-
-          [Container]
-          ContainerName=cupsd
-          Image=docker.io/olbat/cupsd
-          PublishPort=631:631
-          AddDevice=/dev/bus/usb
-
-          [Install]
-          WantedBy=default.target
+        local: quadlet-cupsd.container

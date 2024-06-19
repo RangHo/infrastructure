@@ -1,0 +1,13 @@
+[Unit]
+Description=Containerized CUPS Daemon
+Wants=network-online.target
+After=network-online.target
+
+[Container]
+ContainerName=cupsd
+Image=docker.io/olbat/cupsd
+PublishPort=631:631
+AddDevice=/dev/bus/usb
+
+[Install]
+WantedBy=default.target
