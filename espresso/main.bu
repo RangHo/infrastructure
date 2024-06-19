@@ -26,3 +26,17 @@ storage:
       mode: 0644
       contents:
         inline: RangHo-Espresso
+
+    # CUPS daemon
+    - path: /etc/containers/systemd/cupsd.container
+    contents: |
+      [Unit]
+      Description=CUPS Daemon
+      Wants=network-online.target
+      After=network-online.target
+
+      [Container]
+      ContainerName=cupsd
+      Image=docker.io/olbat/cupsd
+      PublishPort=631
+      AddDevice=/dev/usb/lp0
