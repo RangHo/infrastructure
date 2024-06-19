@@ -37,17 +37,11 @@ storage:
           Wants=network-online.target
           After=network-online.target
 
-          [Service]
-          Restart=always
-          TimeoutStart=300
-
           [Container]
           ContainerName=cupsd
           Image=docker.io/olbat/cupsd
           PublishPort=631:631
           AddDevice=/dev/bus/usb
 
-systemd:
-  units:
-    - name: quadlet-cupsd.service
-      enabled: true
+          [Install]
+          WantedBy=default.target
