@@ -7,6 +7,7 @@ After=network-online.target
 ContainerName=cupsd
 Image=docker.io/olbat/cupsd
 Network=host
+Volume=/var/run/dbus
 AddDevice=/dev/bus/usb
 
 [Install]
