@@ -37,3 +37,8 @@ storage:
     - path: /etc/containers/systemd/quadlet-cupsd.container
       contents:
         local: quadlet-cupsd.container
+
+    # Port 9100+n daemon quadlet
+    - path: /etc/containers/systemd/quadlet-p910nd.container
+      contents:
+        local: quadlet-p910nd.container
