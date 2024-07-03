@@ -34,6 +34,10 @@ storage:
         local: systemd-resolved.conf
 
     # CUPS daemon quadlet
-    - path: /etc/containers/systemd/quadlet-cupsd.container
+    - path: /etc/containers/systemd/cupsd.container
       contents:
         local: quadlet-cupsd.container
+
+    - path: /etc/containers/systemd/vaultwarden.container
+      contents:
+        local: quadlet-vaultwarden.container
