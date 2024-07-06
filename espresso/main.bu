@@ -38,6 +38,10 @@ storage:
       contents:
         local: quadlet-cupsd.container
 
+    # Vaultwarden password manager quadlet
     - path: /etc/containers/systemd/vaultwarden.container
       contents:
         local: quadlet-vaultwarden.container
+    - path: /etc/containers/systemd/vaultwarden.volume
+      contents:
+        local: quadlet-vaultwarden.volume

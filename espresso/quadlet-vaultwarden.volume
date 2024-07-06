@@ -1,0 +1,8 @@
+[Unit]
+Description=Data Volume for Vaultwarden
+
+[Volume]
+Driver=local
+
+[Install]
+WantedBy=default.target
