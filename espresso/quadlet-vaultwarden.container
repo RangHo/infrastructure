@@ -6,7 +6,7 @@ After=network-online.target
 [Container]
 ContainerName=vaultwarden
 Image=docker.io/vaultwarden/server
-PublishPort=80:8081
+PublishPort=8001:80
 Volume=vaultwarden.volume:/data
 
 [Install]
