@@ -31,17 +31,17 @@ storage:
     # Enable mDNS support
     - path: /etc/systemd/resolved.conf
       contents:
-        local: systemd-resolved.conf
+        local: config/systemd-resolved.conf
 
     # CUPS daemon quadlet
     - path: /etc/containers/systemd/cupsd.container
       contents:
-        local: quadlet-cupsd.container
+        local: quadlet/cupsd.container
 
     # Vaultwarden password manager quadlet
     - path: /etc/containers/systemd/vaultwarden.container
       contents:
-        local: quadlet-vaultwarden.container
+        local: quadlet/vaultwarden.container
     - path: /etc/containers/systemd/vaultwarden.volume
       contents:
-        local: quadlet-vaultwarden.volume
+        local: quadlet/vaultwarden.volume
