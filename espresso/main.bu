@@ -48,6 +48,9 @@ storage:
     - path: /etc/containers/systemd/caddy.container
       contents:
         local: quadlet/caddy.container
+    - path: /etc/containers/systemd/caddy.volume
+      contents:
+        local: quadlet/caddy.volume
 
     # Vaultwarden password manager quadlet
     - path: /etc/containers/systemd/vaultwarden.container
