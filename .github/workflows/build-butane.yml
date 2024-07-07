@@ -44,5 +44,5 @@ jobs:
       - name: Upload the produced Ignition file as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: butane-${{ inputs.name }}
+          name: butane-${{ inputs.ign }}
           path: ${{ inputs.ign }}.ign
