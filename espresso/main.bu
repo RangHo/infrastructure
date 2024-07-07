@@ -36,6 +36,11 @@ storage:
       contents:
         local: quadlet/cupsd.container
 
+    # Common bridge network for Internet-facing services
+    - path: /etc/containers/systemd/webserver.network
+      contents:
+        local: quadlet/webserver.network
+
     # Caddy reverse proxy
     - path: /etc/caddy/Caddyfile
       contents:
