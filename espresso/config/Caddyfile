@@ -1,4 +1,4 @@
-home.rangho.me
+home.rangho.me, rangho-espresso.local, localhost
 
 handle / {
     respond "Hello, world!"
