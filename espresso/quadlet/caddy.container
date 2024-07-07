@@ -7,7 +7,10 @@ Requires=webserver.network
 ContainerName=caddy
 Image=docker.io/library/caddy
 PublishPort=80:80
-Volume=/etc/caddy/Caddyfile
+PublishPort=443:443
+Volume=/etc/caddy/Caddyfile:/etc/caddy/Caddyfile
+Volume=caddy.volume:/data
+Network=webserver.network
 
 [Install]
 WantedBy=default.target

@@ -4,6 +4,7 @@ Wants=network-online.target
 After=network.online.target
 
 [Network]
+Driver=bridge
 
 [Install]
 WantedBy=default.target
