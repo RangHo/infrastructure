@@ -1,0 +1,9 @@
+home.rangho.me
+
+handle / {
+    respond "Hello, world!"
+}
+
+handle /vault/* {
+    reverse_proxy vaultwarden:80
+}

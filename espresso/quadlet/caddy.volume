@@ -1,0 +1,8 @@
+[Unit]
+Description=Data Volume for Caddy
+
+[Volume]
+Driver=local
+
+[Install]
+WantedBy=default.target

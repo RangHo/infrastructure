@@ -1,0 +1,13 @@
+[Unit]
+Description=Containerized Caddy Reverse Proxy
+Wants=caddy.volume
+Requires=webserver.network
+
+[Container]
+ContainerName=caddy
+Image=docker.io/library/caddy
+PublishPort=80:80
+Volume=/etc/caddy/Caddyfile
+
+[Install]
+WantedBy=default.target

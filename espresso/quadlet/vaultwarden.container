@@ -1,13 +1,13 @@
 [Unit]
 Description=Containerized Vaultwarden Instance
-Wants=network-online.target
-After=network-online.target
+Wants=vaultwarden.volume
+Requires=webserver.network
 
 [Container]
 ContainerName=vaultwarden
 Image=docker.io/vaultwarden/server
-PublishPort=8001:80
 Volume=vaultwarden.volume:/data
+Network=webserver.network
 
 [Install]
 WantedBy=default.target

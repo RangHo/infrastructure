@@ -1,5 +1,3 @@
-# -*- mode: yaml -*-
-
 variant: fcos
 version: 1.5.0
 
@@ -37,6 +35,14 @@ storage:
     - path: /etc/containers/systemd/cupsd.container
       contents:
         local: quadlet/cupsd.container
+
+    # Caddy reverse proxy
+    - path: /etc/caddy/Caddyfile
+      contents:
+        local: config/Caddyfile
+    - path: /etc/containers/systemd/caddy.container
+      contents:
+        local: quadlet/caddy.container
 
     # Vaultwarden password manager quadlet
     - path: /etc/containers/systemd/vaultwarden.container
