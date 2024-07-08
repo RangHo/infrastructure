@@ -1,6 +1,5 @@
 [Unit]
 Description=Container Network for Web Services
-Requires=network-online.target
 
 [Network]
 Driver=bridge

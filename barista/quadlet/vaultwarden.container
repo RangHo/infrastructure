@@ -2,6 +2,7 @@
 Description=Containerized Vaultwarden Instance
 Wants=vaultwarden.volume
 Requires=webserver.network
+After=network-online.target
 
 [Container]
 ContainerName=vaultwarden

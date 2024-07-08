@@ -2,6 +2,7 @@
 Description=Containerized Caddy Reverse Proxy
 Wants=caddy.volume
 Requires=webserver.network
+After=network-online.target
 
 [Container]
 ContainerName=caddy
