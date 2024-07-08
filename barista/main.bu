@@ -11,12 +11,12 @@ storage:
     - device: /dev/disk/by-path/pci-0000:00:1f.2-ata-1
       wipe_table: true
       partitions:
-        - label: barista-var
+        - label: var
   filesystems:
-    - device: /dev/disk/by-partlabel/barista-var
-      label: barista-var
+    - device: /dev/disk/by-partlabel/var
+      label: var
       format: ext4
-      wipe_filesystem: false
+      wipe_filesystem: true
       path: /var
       with_mount_unit: true
   files:
