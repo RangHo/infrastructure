@@ -1,3 +1,4 @@
+# -*- mode: yaml -*-
 variant: fcos
 version: 1.5.0
 
@@ -48,14 +49,14 @@ storage:
     - path: /etc/containers/systemd/caddy.container
       contents:
         local: quadlet/caddy.container
-    - path: /etc/containers/systemd/caddy.volume
+    - path: /etc/containers/systemd/caddy-data.volume
       contents:
-        local: quadlet/caddy.volume
+        local: quadlet/caddy-data.volume
 
     # Vaultwarden password manager quadlet
     - path: /etc/containers/systemd/vaultwarden.container
       contents:
         local: quadlet/vaultwarden.container
-    - path: /etc/containers/systemd/vaultwarden.volume
+    - path: /etc/containers/systemd/vaultwarden-data.volume
       contents:
-        local: quadlet/vaultwarden.volume
+        local: quadlet/vaultwarden-data.volume

@@ -1,6 +1,6 @@
 [Unit]
 Description=Containerized Vaultwarden Instance
-Wants=vaultwarden.volume
+Wants=vaultwarden-data.volume
 Requires=webserver.network
 After=network-online.target
 
