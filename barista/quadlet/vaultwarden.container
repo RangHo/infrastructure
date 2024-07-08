@@ -6,7 +6,7 @@ After=network-online.target
 
 [Container]
 ContainerName=vaultwarden
-Image=docker.io/vaultwarden/server
+Image=docker.io/vaultwarden/server:alpine
 Environment=DOMAIN=http://vaultwarden/vault
 Environment=SIGNUPS_ALLOWED=false
 Environment=PUSH_ENABLED=true
