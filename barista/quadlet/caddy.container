@@ -10,7 +10,7 @@ Image=docker.io/library/caddy
 PublishPort=80:80
 PublishPort=443:443
 Volume=/etc/caddy/Caddyfile:/etc/caddy/Caddyfile
-Volume=caddy.volume:/data
+Volume=caddy-data.volume:/data
 Network=webserver.network
 
 [Install]
