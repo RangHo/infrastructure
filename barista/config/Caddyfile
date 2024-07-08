@@ -4,10 +4,7 @@ handle / {
     respond "Hello, world!"
 }
 
-handle /vault {
-    redir /vault/
-}
-
+redir /vault /vault/
 handle /vault/* {
     reverse_proxy vaultwarden:80
 }
