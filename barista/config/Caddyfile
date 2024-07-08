@@ -1,7 +1,11 @@
-home.rangho.me, rangho-espresso.local, localhost
+home.rangho.me, rangho-barista.local, localhost
 
 handle / {
     respond "Hello, world!"
+}
+
+handle /vault {
+    redir /vault/
 }
 
 handle /vault/* {
