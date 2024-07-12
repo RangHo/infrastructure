@@ -17,6 +17,13 @@ jobs:
       ign: barista
     secrets: inherit
 
+  build-static:
+    name: Build static configuration for Roastery
+    uses: ./.github/workflows/build-static.yml
+    with:
+      basedir: roastery
+    secrets: inherit
+
   deploy-pages:
     name: Deploy the artifacts to GitHub Pages
     needs:

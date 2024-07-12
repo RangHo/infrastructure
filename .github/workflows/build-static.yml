@@ -1,0 +1,24 @@
+name: Build static files
+
+on:
+  workflow_call:
+    inputs:
+      basedir:
+        description: Base directory that contains all files to export.
+        required: true
+        type: string
+
+jobs:
+  main:
+    name: Build static files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload all static files as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-${{ inputs.basedir }}
+          path: ${{ inputs.basedir }}
