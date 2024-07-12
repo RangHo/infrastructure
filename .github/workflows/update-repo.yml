@@ -28,5 +28,6 @@ jobs:
     name: Deploy the artifacts to GitHub Pages
     needs:
       - build-butane
+      - build-static
     uses: ./.github/workflows/deploy-pages.yml
     secrets: inherit
