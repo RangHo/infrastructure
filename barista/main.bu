@@ -9,7 +9,7 @@ ignition:
 
 storage:
   disks:
-    - device: /dev/disk/by-path/pci-0000:00:1f.2-ata-1
+    - device: /dev/sda
       wipe_table: true
       partitions:
         - label: var
