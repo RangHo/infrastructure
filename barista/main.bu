@@ -17,7 +17,7 @@ storage:
     - device: /dev/disk/by-partlabel/var
       label: var
       format: ext4
-      wipe_filesystem: true
+      wipe_filesystem: false
       path: /var
       with_mount_unit: true
   files:
