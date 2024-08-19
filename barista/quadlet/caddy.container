@@ -1,7 +1,5 @@
 [Unit]
 Description=Containerized Caddy Reverse Proxy
-Wants=caddy-data.volume
-Requires=webserver.network
 After=network-online.target
 
 [Container]

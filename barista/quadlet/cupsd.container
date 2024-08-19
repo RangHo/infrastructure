@@ -1,6 +1,5 @@
 [Unit]
 Description=Containerized CUPS Daemon
-Wants=network-online.target
 After=network-online.target
 
 [Container]
