@@ -32,11 +32,6 @@ storage:
       contents:
         local: config/systemd-resolved.conf
 
-    # CUPS daemon quadlet
-    - path: /etc/containers/systemd/cupsd.container
-      contents:
-        local: quadlet/cupsd.container
-
     # Common bridge network for Internet-facing services
     - path: /etc/containers/systemd/webserver.network
       contents:
