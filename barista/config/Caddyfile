@@ -1,10 +1,29 @@
-home.rangho.me, rangho-barista.local, localhost
-
-handle / {
-    respond "Hello, world!"
+home.rangho.me {
+    reverse_proxy :8080
 }
 
-redir /vault /vault/
-handle /vault/* {
-    reverse_proxy vaultwarden:80
+rangho-barista.internal {
+    tls internal
+    reverse_proxy :8080
+}
+
+:8080 {
+    handle / {
+        respond "Hello, world!"
+    }
+
+    redir /vault /vault/
+    handle /vault/* {
+        reverse_proxy vaultwarden:80
+    }
+
+    handle {
+        abort
+    }
+}
+
+rangho.moe {
+    handle {
+        abort
+    }
 }
