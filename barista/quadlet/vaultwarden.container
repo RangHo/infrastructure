@@ -1,6 +1,5 @@
 [Unit]
 Description=Containerized Vaultwarden Instance
-After=network-online.target
 
 [Container]
 ContainerName=vaultwarden

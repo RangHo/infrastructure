@@ -1,6 +1,5 @@
 [Unit]
 Description=Containerized Caddy Reverse Proxy
-After=network-online.target
 
 [Container]
 ContainerName=caddy
