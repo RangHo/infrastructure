@@ -4,6 +4,7 @@ Description=Containerized Vaultwarden Instance
 [Container]
 ContainerName=vaultwarden
 Image=docker.io/vaultwarden/server:alpine
+Environment=DATABASE_URL=postgresql://vaultwarden@postgres/vaultwarden
 Environment=DOMAIN=http://vaultwarden/vault
 Environment=PUSH_ENABLED=true
 Environment=PUSH_INSTALLATION_ID=770e60c8-dfe8-4ffc-90ba-b1a600f786d8

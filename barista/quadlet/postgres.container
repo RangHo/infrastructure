@@ -1,0 +1,12 @@
+[Unit]
+Description=Containerized PostgreSQL Database
+Requires=podman-secret-database.service
+
+[Container]
+ContainerName=postgres
+Image=docker.io/library/postgres:alpine
+Volume=postgres-data.volume:/var/lib/postgresql/data
+Network=webserver.network
+
+[Install]
+WantedBy=default.target
