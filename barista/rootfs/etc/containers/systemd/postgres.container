@@ -3,10 +3,11 @@ Description=Containerized PostgreSQL Database
 Requires=podman-secret-database.service
 
 [Container]
+AutoUpdate=registry
 ContainerName=postgres
 Image=docker.io/library/postgres:alpine
-Volume=postgres-data.volume:/var/lib/postgresql/data
 Network=webserver.network
+Volume=postgres-data.volume:/var/lib/postgresql/data
 
 [Install]
 WantedBy=default.target
