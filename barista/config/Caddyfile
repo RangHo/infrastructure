@@ -8,17 +8,13 @@ rangho-barista.internal {
 }
 
 :8080 {
-    handle / {
-        respond "Hello, world!"
-    }
-
     redir /vault /vault/
     handle /vault/* {
         reverse_proxy vaultwarden:80
     }
 
     handle {
-        abort
+        reverse_proxy homer:8080
     }
 }
 

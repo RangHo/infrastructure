@@ -1,0 +1,11 @@
+[Unit]
+Description=Containerized Homer Dashboard
+
+[Container]
+ContainerName=homer
+Image=docker.io/b4bz/homer:latest
+Volume=/etc/homer:/www/assets
+Network=webserver.network
+
+[Install]
+WantedBy=default.target
