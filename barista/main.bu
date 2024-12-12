@@ -20,49 +20,6 @@ storage:
       wipe_filesystem: false
       path: /var
       with_mount_unit: true
-  files:
-    # Set hostname
-    - path: /etc/hostname
-      mode: 0644
-      contents:
-        inline: RangHo-Barista
-
-    # Enable mDNS support
-    - path: /etc/systemd/resolved.conf
-      contents:
-        local: config/systemd-resolved.conf
-
-    # Common bridge network for Internet-facing services
-    - path: /etc/containers/systemd/webserver.network
-      contents:
-        local: quadlet/webserver.network
-
-    # Caddy reverse proxy
-    - path: /etc/caddy/Caddyfile
-      contents:
-        local: config/Caddyfile
-    - path: /etc/containers/systemd/caddy.container
-      contents:
-        local: quadlet/caddy.container
-    - path: /etc/containers/systemd/caddy-data.volume
-      contents:
-        local: quadlet/caddy-data.volume
-
-    # PostgreSQL database server
-    - path: /etc/containers/systemd/postgres.container
-      contents:
-        local: quadlet/postgres.container
-    - path: /etc/containers/systemd/postgres-data.volume
-      contents:
-        local: quadlet/postgres-data.volume
-    - path: /etc/systemd/system/podman-secret-database.service
-      contents:
-        local: systemd/podman-secret-database.service
-
-    # Vaultwarden password manager
-    - path: /etc/containers/systemd/vaultwarden.container
-      contents:
-        local: quadlet/vaultwarden.container
-    - path: /etc/containers/systemd/vaultwarden-data.volume
-      contents:
-        local: quadlet/vaultwarden-data.volume
+  trees:
+    - path: /
+      local: rootfs
