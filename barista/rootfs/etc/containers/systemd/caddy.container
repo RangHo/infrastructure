@@ -2,7 +2,6 @@
 Description=Containerized Caddy Reverse Proxy
 
 [Container]
-AutoUpdate=registry
 ContainerName=caddy
 Image=docker.io/library/caddy:alpine
 Network=webserver.network
@@ -10,6 +9,7 @@ PublishPort=80:80
 PublishPort=443:443
 Volume=/etc/caddy/Caddyfile:/etc/caddy/Caddyfile
 Volume=caddy-data.volume:/data
+AutoUpdate=registry
 
 [Install]
 WantedBy=default.target

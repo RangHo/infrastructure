@@ -1,8 +1,0 @@
-[Unit]
-Description=Data Volume for PostgreSQL
-
-[Volume]
-Driver=local
-
-[Install]
-WantedBy=default.target

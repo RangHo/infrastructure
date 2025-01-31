@@ -23,3 +23,10 @@ storage:
   trees:
     - path: /
       local: rootfs
+
+systemd:
+  units:
+    - name: podman-auto-update.timer
+      enabled: true
+    - name: populate-secret@vaultwarden.service
+      enabled: true
