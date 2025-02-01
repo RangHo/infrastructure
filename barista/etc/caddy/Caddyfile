@@ -1,16 +1,24 @@
+# If accessing from the internet, Cloudflare takes care of the TLS connection.
 home.rangho.me {
     reverse_proxy :8080
 }
 
+# If accessing from the internal network, use self-signed certificates.
 rangho-barista.internal {
     tls internal
     reverse_proxy :8080
 }
 
+# Actual reverse proxy for the services.
 :8080 {
     redir /vault /vault/
     handle /vault/* {
         reverse_proxy vaultwarden:80
+    }
+
+    redir /bucket /bucket/
+    handle /bucket/* {
+        reverse_proxy minio:9000
     }
 
     handle {
@@ -18,6 +26,7 @@ rangho-barista.internal {
     }
 }
 
+# Social networking endpoint.
 rangho.moe {
     handle {
         abort

@@ -21,12 +21,14 @@ storage:
       path: /var
       with_mount_unit: true
   trees:
-    - path: /
-      local: rootfs
+    - path: /etc
+      local: etc
 
 systemd:
   units:
     - name: podman-auto-update.timer
+      enabled: true
+    - name: populate-secret@cloudflared-tunnel.service
       enabled: true
     - name: populate-secret@vaultwarden.service
       enabled: true

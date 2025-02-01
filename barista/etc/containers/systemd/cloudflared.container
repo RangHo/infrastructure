@@ -1,0 +1,14 @@
+[Unit]
+Description=Cloudflare WARP Daemon in Container Network
+Requires=populate-secret@cloudflared-tunnel.service
+
+[Container]
+ContainerName=cloudflared
+Exec=tunnel --no-autoupdate run
+Image=docker.io/cloudflare/cloudflared:latest
+Network=webserver.network
+Secret=cloudflared-tunnel,type=env,target=TUNNEL_TOKEN
+AutoUpdate=registry
+
+[Install]
+WantedBy=default.target
