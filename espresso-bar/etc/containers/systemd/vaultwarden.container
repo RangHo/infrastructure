@@ -5,7 +5,7 @@ Requires=populate-secret@vaultwarden.service
 [Container]
 ContainerName=vaultwarden
 Image=docker.io/vaultwarden/server:alpine
-Environment=PGHOST=rangho-roastery.internal
+Environment=PGHOST=roastery.internal
 Environment=PGUSER=vaultwarden
 Environment=PGDATABASE=vaultwarden
 Environment=DOMAIN=http://vaultwarden/vault
