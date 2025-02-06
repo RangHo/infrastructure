@@ -8,7 +8,7 @@ Image=docker.io/vaultwarden/server:alpine
 Environment=PGHOST=roastery.internal
 Environment=PGUSER=vaultwarden
 Environment=PGDATABASE=vaultwarden
-Environment=DOMAIN=http://vaultwarden/vault
+Environment=DOMAIN=http://vaultwarden/
 Environment=PUSH_ENABLED=true
 Environment=PUSH_INSTALLATION_ID=770e60c8-dfe8-4ffc-90ba-b1a600f786d8
 Environment=PUSH_INSTALLATION_KEY=6tYzjVsBnoJhUImIxNuO
