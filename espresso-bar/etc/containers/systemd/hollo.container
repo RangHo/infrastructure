@@ -1,0 +1,25 @@
+[Unit]
+Description=Containerized Hollo Instance
+Requires=populate-secret@hollo-postgres.service
+Requires=populate-secret@hollo-minio-id.service
+Requires=populate-secret@hollo-minio-secret.service
+
+[Container]
+ContainerName=hollo
+Image=ghcr.io/fedify-dev/hollo:latest
+Environment=ASSET_URL_BASE=https://blobs.rangho.moe
+Environment=BEHIND_PROXY=true
+Environment=DRIVE_DISK=s3
+Environment=S3_BUCKET=hollo
+Environment=S3_ENDPOINT_URL=http://roastery.internal:9000
+Environment=S3_FORCE_PATH_STYLE=true
+Environment=S3_REGION=
+Network=webserver.network
+Secret=hollo-minio-id,type=env,target=AWS_ACCESS_KEY_ID
+Secret=hollo-minio-secret,type=env,target=AWS_SECRET_ACCESS_KEY
+Secret=hollo-postgres,type=env,target=DATABASE_URL
+Secret=hollo-secret,type=env,target=SECRET_KEY
+AutoUpdate=registry
+
+[Install]
+WantedBy=default.target
