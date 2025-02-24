@@ -13,7 +13,7 @@ Environment=DRIVE_DISK=s3
 Environment=S3_BUCKET=hollo
 Environment=S3_ENDPOINT_URL=http://roastery.internal:9000
 Environment=S3_FORCE_PATH_STYLE=true
-Environment=S3_REGION=
+Environment=S3_REGION=us-east-1
 Network=webserver.network
 Secret=hollo-minio-id,type=env,target=AWS_ACCESS_KEY_ID
 Secret=hollo-minio-secret,type=env,target=AWS_SECRET_ACCESS_KEY
