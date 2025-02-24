@@ -7,7 +7,7 @@ Requires=populate-secret@hollo-minio-secret.service
 [Container]
 ContainerName=hollo
 Image=ghcr.io/fedify-dev/hollo:latest
-Environment=ASSET_URL_BASE=https://blobs.rangho.moe
+Environment=ASSET_URL_BASE=https://blobs.rangho.moe/hollo
 Environment=BEHIND_PROXY=true
 Environment=DRIVE_DISK=s3
 Environment=S3_BUCKET=hollo
