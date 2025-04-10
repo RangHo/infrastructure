@@ -1,0 +1,14 @@
+[Unit]
+Description=Containerized PostgreSQL Database
+Requires=generate-secret@postgres.service
+
+[Container]
+ContainerName=postgres
+Image=docker.io/library/postgres:17-alpine
+Network=webserver.network
+Secret=postgres,type=env,target=POSTGRES_PASSWORD
+Volume=postgres-data.volume:/var/lib/postgresql/data
+AutoUpdate=registry
+
+[Install]
+WantedBy=default.target

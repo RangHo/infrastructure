@@ -1,6 +1,6 @@
 [Unit]
 Description=Containerized Hollo Instance
-Requires=populate-secret@hollo-postgres.service
+Requires=postgres.container
 Requires=populate-secret@hollo-minio-id.service
 Requires=populate-secret@hollo-minio-secret.service
 
@@ -10,6 +10,7 @@ Image=ghcr.io/fedify-dev/hollo:latest
 Environment=ALLOW_HTML=true
 Environment=ASSET_URL_BASE=https://blobs.rangho.moe/hollo
 Environment=BEHIND_PROXY=true
+Environment=DATABASE_URL=postgres://hollo@postgres/hollo
 Environment=DRIVE_DISK=s3
 Environment=HOME_URL=https://hello.rangho.moe
 Environment=S3_BUCKET=hollo
@@ -19,7 +20,6 @@ Environment=S3_REGION=us-east-1
 Network=webserver.network
 Secret=hollo-minio-id,type=env,target=AWS_ACCESS_KEY_ID
 Secret=hollo-minio-secret,type=env,target=AWS_SECRET_ACCESS_KEY
-Secret=hollo-postgres,type=env,target=DATABASE_URL
 Secret=hollo-secret,type=env,target=SECRET_KEY
 AutoUpdate=registry
 

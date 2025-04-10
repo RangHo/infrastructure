@@ -1,17 +1,16 @@
 [Unit]
 Description=Containerized Vaultwarden Instance
-Requires=populate-secret@vaultwarden.service
 
 [Container]
 ContainerName=vaultwarden
 Image=docker.io/vaultwarden/server:alpine
-Environment=DOMAIN=http://vaultwarden
+Environment=DATABASE_URL=postgres://vaultwarden@postgres/vaultwarden
+Environment=DOMAIN=http://vault.rangho.moe
 Environment=PUSH_ENABLED=true
 Environment=PUSH_INSTALLATION_ID=770e60c8-dfe8-4ffc-90ba-b1a600f786d8
 Environment=PUSH_INSTALLATION_KEY=6tYzjVsBnoJhUImIxNuO
 Environment=SIGNUPS_ALLOWED=false
 Network=webserver.network
-Secret=vaultwarden,type=env,target=DATABASE_URL
 Volume=vaultwarden-data.volume:/data
 AutoUpdate=registry
 
