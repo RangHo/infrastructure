@@ -3,7 +3,7 @@ Description=Container Network for Web Services
 
 [Network]
 Driver=bridge
-Subnet=172.20.0.0/24
+Subnet=172.18.0.0/24
 
 [Install]
 WantedBy=default.target

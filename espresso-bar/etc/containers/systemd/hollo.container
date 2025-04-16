@@ -1,8 +1,9 @@
 [Unit]
 Description=Containerized Hollo Instance
 Requires=postgres.container
-Requires=populate-secret@hollo-minio-id.service
-Requires=populate-secret@hollo-minio-secret.service
+Requires=generate-secret@hollo-secret.service
+Requires=download-secret@hollo-minio-id.service
+Requires=download-secret@hollo-minio-secret.service
 
 [Container]
 ContainerName=hollo

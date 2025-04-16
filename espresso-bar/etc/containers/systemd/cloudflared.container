@@ -1,6 +1,6 @@
 [Unit]
 Description=Cloudflare WARP Daemon in Container Network
-Requires=populate-secret@cloudflared-tunnel.service
+Requires=download-secret@cloudflared-tunnel.service
 
 [Container]
 ContainerName=cloudflared
