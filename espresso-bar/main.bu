@@ -8,18 +8,6 @@ ignition:
       - source: https://by.rangho.dev/jumpstart/passwd/from-github?name=RangHo
 
 storage:
-  disks:
-    - device: /dev/sda
-      wipe_table: true
-      partitions:
-        - label: var
-  filesystems:
-    - device: /dev/disk/by-partlabel/var
-      label: var
-      format: ext4
-      wipe_filesystem: false
-      path: /var
-      with_mount_unit: true
   trees:
     - path: /etc
       local: etc
@@ -27,8 +15,4 @@ storage:
 systemd:
   units:
     - name: podman-auto-update.timer
-      enabled: true
-    - name: populate-secret@cloudflared-tunnel.service
-      enabled: true
-    - name: populate-secret@vaultwarden.service
       enabled: true
