@@ -1,6 +1,6 @@
 # -*- mode: yaml -*-
 variant: fcos
-version: 1.5.0
+version: 1.6.0
 
 ignition:
   config:
@@ -8,6 +8,24 @@ ignition:
       - source: https://by.rangho.dev/jumpstart/passwd/from-github?name=RangHo
 
 storage:
+  disks:
+    - device: /dev/sda
+      wipe_table: false
+      partitions:
+        - label: root
+          number: 4
+          size_mib: 65535 # 64GiB
+          resize: true
+        - label: var
+          number: 5
+          size_mib: 0 # fill the rest
+
+  filesystems:
+    - device: /dev/disk/by-partlabel/var
+      path: /var
+      format: ext4
+      wipe_filesystem: false
+      with_mount_unit: true
   trees:
     - path: /etc
       local: etc
