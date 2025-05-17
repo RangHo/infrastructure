@@ -2,26 +2,26 @@
 Description=Containerized Hollo Instance
 Requires=postgres.container
 Requires=generate-secret@hollo-secret.service
-Requires=download-secret@hollo-r2-url.service
-Requires=download-secret@hollo-r2-id.service
-Requires=download-secret@hollo-r2-secret.service
+Requires=download-secret@hollo-s3-url.service
+Requires=download-secret@hollo-s3-id.service
+Requires=download-secret@hollo-s3-secret.service
 
 [Container]
 ContainerName=hollo
 Image=ghcr.io/fedify-dev/hollo:latest
 Environment=ALLOW_HTML=true
-Environment=ASSET_URL_BASE=https://r2-hollo.rangho.moe/
+Environment=ASSET_URL_BASE=https://blobs.rangho.moe/hollo
 Environment=BEHIND_PROXY=true
 Environment=DATABASE_URL=postgres://hollo@postgres/hollo
 Environment=DRIVE_DISK=s3
 Environment=HOME_URL=https://hello.rangho.moe
 Environment=S3_BUCKET=hollo
 Environment=S3_FORCE_PATH_STYLE=true
-Environment=S3_REGION=auto
+Environment=S3_REGION=us-east-1
 Network=webserver.network
-Secret=hollo-r2-url,type=env,target=S3_ENDPOINT_URL
-Secret=hollo-r2-id,type=env,target=AWS_ACCESS_KEY_ID
-Secret=hollo-r2-secret,type=env,target=AWS_SECRET_ACCESS_KEY
+Secret=hollo-s3-url,type=env,target=S3_ENDPOINT_URL
+Secret=hollo-s3-id,type=env,target=AWS_ACCESS_KEY_ID
+Secret=hollo-s3-secret,type=env,target=AWS_SECRET_ACCESS_KEY
 Secret=hollo-secret,type=env,target=SECRET_KEY
 AutoUpdate=registry
 
