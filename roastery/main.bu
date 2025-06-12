@@ -1,0 +1,28 @@
+# -*- mode: yaml -*-
+variant: fcos
+version: 1.6.0
+
+ignition:
+  config:
+    merge:
+      - source: https://by.rangho.dev/jumpstart/passwd/from-github?name=RangHo
+
+storage:
+  filesystems:
+    - device: /dev/disk/by-uuid/6d37e713-6c9f-4460-8081-bb6a4e9a0ee7
+      path: /var
+      format: btrfs
+      wipe_filesystem: false
+      with_mount_unit: true
+
+  trees:
+    - path: /etc
+      local: etc
+
+systemd:
+  units:
+    - name: podman-auto-update.service
+      enabled: true
+
+    - name: zincati.service
+      enabled: true
