@@ -19,12 +19,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           pattern: static-*
-
-      - name: Normalize static artifact directory
-        run: |
-          for d in static-*; do
-            mv $d _site/$(echo $d | sed 's/static-//')
-          done
+          path: _site
+          merge-multiple: true
 
       - name: Upload all artifacts for GitHub Pages
         uses: actions/upload-pages-artifact@v3
