@@ -8,7 +8,7 @@ permissions:
   id-token: write
 
 jobs:
-  build-butane:
+  build-coffeehouse:
     name: Build Butane configuration for Coffeehouse
     uses: ./.github/workflows/build-butane.yml
     with:
@@ -17,17 +17,19 @@ jobs:
       ign: coffeehouse
     secrets: inherit
 
-  build-static:
-    name: Build static configuration for Roastery
-    uses: ./.github/workflows/build-static.yml
+  build-roastery:
+    name: Build Butane configuration for Roastery
+    uses: ./.github/workflows/build-butane.yml
     with:
       basedir: roastery
+      bu: main
+      ign: roastery
     secrets: inherit
 
   deploy-pages:
     name: Deploy the artifacts to GitHub Pages
     needs:
-      - build-butane
-      - build-static
+      - build-coffeehouse
+      - build-roastery
     uses: ./.github/workflows/deploy-pages.yml
     secrets: inherit
