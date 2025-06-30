@@ -26,11 +26,15 @@ storage:
       format: ext4
       wipe_filesystem: false
       with_mount_unit: true
+
   trees:
     - path: /etc
       local: etc
 
 systemd:
   units:
-    - name: podman-auto-update.timer
+    - name: podman-auto-update.service
+      enabled: true
+
+    - name: zincati.service
       enabled: true
