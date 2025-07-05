@@ -5,7 +5,8 @@ Description=Cloudflare WARP Daemon in Container Network
 ContainerName=cloudflared
 Exec=tunnel --no-autoupdate run
 Image=docker.io/cloudflare/cloudflared:latest
-Secret=cloudflared-tunnel,type=env,target=TUNNEL_TOKEN
+Network=zero-trust.network
+Secret=cloudflared-tunnel-token,type=env,target=TUNNEL_TOKEN
 AutoUpdate=registry
 
 [Install]
