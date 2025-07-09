@@ -8,9 +8,20 @@ ignition:
       - source: https://by.rangho.dev/jumpstart/passwd/from-github?name=RangHo
 
 storage:
+  disks:
+    - device: /dev/sda
+      wipe_table: true
+      partitions:
+        - label: var
+
   filesystems:
-    - device: /dev/disk/by-uuid/6d37e713-6c9f-4460-8081-bb6a4e9a0ee7
+    - device: /dev/disk/by-partlabel/var
       path: /var
+      format: ext4
+      wipe_filesystem: false
+      with_mount_unit: true
+    - device: /dev/disk/by-uuid/6d37e713-6c9f-4460-8081-bb6a4e9a0ee7
+      path: /mnt
       format: btrfs
       wipe_filesystem: false
       with_mount_unit: true
@@ -22,7 +33,4 @@ storage:
 systemd:
   units:
     - name: podman-auto-update.service
-      enabled: true
-
-    - name: zincati.service
       enabled: true
