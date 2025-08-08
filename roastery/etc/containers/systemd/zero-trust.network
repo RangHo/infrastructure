@@ -1,0 +1,9 @@
+[Unit]
+Description=Network Accessible via Cloudflare Zero Trust
+
+[Network]
+Driver=bridge
+Subnet=172.18.2.0/24
+
+[Install]
+WantedBy=default.target
