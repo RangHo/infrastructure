@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount data directory
+
+[Mount]
+What=/dev/disk/by-uuid/6d37e713-6c9f-4460-8081-bb6a4e9a0ee7
+Where=/var/mnt/data
+Type=btrfs
+Options=rw,autodefrag,compress=zstd:3,noatime
+
+[Install]
+WantedBy=multi-user.target
