@@ -20,6 +20,11 @@ storage:
       format: ext4
       wipe_filesystem: false
       with_mount_unit: true
+    - device: /dev/disk/by-uuid/6d37e713-6c9f-4460-8081-bb6a4e9a0ee7
+      path: /var/mnt
+      format: btrfs
+      wipe_filesystem: false
+      with_mount_unit: true
 
   trees:
     - path: /etc
