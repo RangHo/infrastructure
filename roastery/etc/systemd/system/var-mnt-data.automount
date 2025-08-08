@@ -1,9 +1,0 @@
-[Unit]
-Description=Automount data directory
-
-[Automount]
-TimeoutIdleSec=20min
-Where=/var/mnt/data
-
-[Install]
-WantedBy=multi-user.target
