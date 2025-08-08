@@ -10,15 +10,9 @@ ignition:
 storage:
   disks:
     - device: /dev/sda
-      wipe_table: false
+      wipe_table: true
       partitions:
-        - label: root
-          number: 4
-          size_mib: 65535 # 64GiB
-          resize: true
         - label: var
-          number: 5
-          size_mib: 0 # fill the rest
 
   filesystems:
     - device: /dev/disk/by-partlabel/var
@@ -34,7 +28,4 @@ storage:
 systemd:
   units:
     - name: podman-auto-update.service
-      enabled: true
-
-    - name: zincati.service
       enabled: true
