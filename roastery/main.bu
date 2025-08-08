@@ -24,7 +24,6 @@ storage:
       path: /mnt
       format: btrfs
       wipe_filesystem: false
-      with_mount_unit: true
 
   trees:
     - path: /etc
