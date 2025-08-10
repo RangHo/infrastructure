@@ -1,0 +1,10 @@
+[Unit]
+Description=Containerized Web Access Provider for VersityGW Instance
+
+[Container]
+ContainerName=versitygw-www
+Image=docker.io/joseluisq/static-web-server:2-alpine
+Environment=SERVER_ROOT=/data
+Pod=s3.pod
+Volume=versitygw-data.volume:/data:ro,z
+AutoUpdate=registry
