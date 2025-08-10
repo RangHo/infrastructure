@@ -1,0 +1,11 @@
+[Unit]
+Description=Data Volume for VersityGW
+
+[Volume]
+Driver=local
+Device=/dev/disk/by-uuid/6d37e713-6c9f-4460-8081-bb6a4e9a0ee7
+Type=btrfs
+Options=rw,subvol=/versitygw,autodefrag,compress=zstd:3,noatime
+
+[Install]
+WantedBy=default.target

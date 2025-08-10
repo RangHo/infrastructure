@@ -1,0 +1,8 @@
+[Unit]
+Description=Metadata Volume for VersityGW
+
+[Volume]
+Driver=local
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=S3-compatible Object Storage Provider
+
+[Pod]
+PodName=s3
+Network=zero-trust.network
+PublishPort=7070:7070
+
+[Install]
+WantedBy=default.target

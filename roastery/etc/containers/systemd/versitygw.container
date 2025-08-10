@@ -1,0 +1,15 @@
+[Unit]
+Description=Containerized VersityGW Instance
+Requires=generate-secret@versitygw-root-access.service
+Requires=generate-secret@versitygw-root-secret.service
+
+[Container]
+ContainerName=versitygw
+Image=docker.io/versity/versitygw:latest
+Exec=--iam-dir /meta posix /data
+Pod=s3.pod
+Secret=versitygw-root-access,type=env,target=ROOT_ACCESS_KEY
+Secret=versitygw-root-secret,type=env,target=ROOT_SECRET_KEY
+Volume=versitygw-data.volume:/data:z
+Volume=versitygw-meta.volume:/meta
+AutoUpdate=registry
