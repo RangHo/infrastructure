@@ -6,14 +6,13 @@ Requires=hollo-db.container
 [Container]
 ContainerName=hollo
 Image=ghcr.io/fedify-dev/hollo:latest
-Environment=ALLOW_HTML=true
-Environment=ASSET_URL_BASE=https://blobs.rangho.moe/hollo
 Environment=BEHIND_PROXY=true
 Environment=DRIVE_DISK=s3
 Environment=HOME_URL=https://hello.rangho.moe
 Environment=S3_BUCKET=hollo
 Environment=S3_ENDPOINT_URL=http://s3.internal:7070
 Environment=S3_REGION=us-east-1
+Environment=STORAGE_URL_BASE=https://blobs.rangho.moe/hollo
 Pod=fediverse.pod
 Secret=hollo-db-url,type=env,target=DATABASE_URL
 Secret=hollo-s3-access,type=env,target=AWS_ACCESS_KEY_ID
