@@ -1,15 +1,15 @@
 ---
 name: New service request
 about: more service to torture my servers with
-title: ''
-labels: 'new service'
-assignees: ''
+title: '[NEW] something should be added'
+labels:
+  - new service
 ---
 
-**What service?**
+### What service?
 
-**Why that service?**
+### Why that service?
 
-**Where to put?**
+### Where to put?
 
-**Anything else?**
+### Anything else?

@@ -1,19 +1,19 @@
 ---
 name: Bug report
 about: some stupid service or machine broke
-title: ''
-labels: 'bug'
-assignees: ''
+title: '[BUG] something is not working'
+labels:
+  - bug
 ---
 
-**What broke?**
+### What broke?
 
-**Reproduction steps?**
+### Reproduction steps?
 
-**What should happen?**
+### What should happen?
 
-**What actually happens?**
+### What actually happens?
 
-**Screenshots?**
+### Screenshots?
 
-**Anything else?**
+### Anything else?

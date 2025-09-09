@@ -1,15 +1,15 @@
 ---
 name: Enhancement request
 about: unshittifying existing things
-title: ''
-labels: 'enhancement'
-assignees: ''
+title: '[ENH] something could be better'
+labels:
+  - enhancement
 ---
 
-**What enhancement?**
+### What enhancement?
 
-**Why that enhancement?**
+### Why that enhancement?
 
-**How to implement?**
+### How to implement?
 
-**Anything else?**
+### Anything else?
