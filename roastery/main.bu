@@ -9,7 +9,7 @@ ignition:
 
 storage:
   disks:
-    - device: /dev/sda
+    - device: /dev/nvme0n1
       wipe_table: true
       partitions:
         - label: var
