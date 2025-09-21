@@ -9,7 +9,7 @@ ignition:
 
 storage:
   disks:
-    - device: /dev/nvme0n1
+    - device: /dev/sda
       wipe_table: true # it is fine to wipe since we will always netboot
       partitions:
         - label: var
