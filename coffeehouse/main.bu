@@ -10,9 +10,10 @@ ignition:
 storage:
   disks:
     - device: /dev/nvme0n1
-      wipe_table: true
+      wipe_table: true # it is fine to wipe since we will always netboot
       partitions:
         - label: var
+          wipe_partition_entry: true
 
   filesystems:
     - device: /dev/disk/by-partlabel/var
