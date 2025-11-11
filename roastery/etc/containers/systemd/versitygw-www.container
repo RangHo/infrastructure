@@ -8,3 +8,9 @@ Environment=SERVER_ROOT=/data
 Pod=s3.pod
 Volume=versitygw-data.volume:/data:ro,z
 AutoUpdate=registry
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

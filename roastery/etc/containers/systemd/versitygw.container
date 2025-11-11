@@ -13,3 +13,9 @@ Secret=versitygw-root-secret,type=env,target=ROOT_SECRET_KEY
 Volume=versitygw-data.volume:/data:z
 Volume=versitygw-meta.volume:/meta
 AutoUpdate=registry
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

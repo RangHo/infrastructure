@@ -13,5 +13,8 @@ Network=zero-trust.network
 Volume=vaultwarden-data.volume:/data
 AutoUpdate=registry
 
+[Service]
+Restart=on-failure
+
 [Install]
 WantedBy=default.target

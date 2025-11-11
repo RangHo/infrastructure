@@ -9,5 +9,8 @@ Secret=hollo-db-password,type=env,target=POSTGRES_PASSWORD
 Volume=hollo-db-data.volume:/var/lib/postgresql/data
 AutoUpdate=registry
 
+[Service]
+Restart=on-failure
+
 [Install]
 WantedBy=default.target

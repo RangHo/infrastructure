@@ -22,5 +22,8 @@ Secret=hollo-s3-secret,type=env,target=AWS_SECRET_ACCESS_KEY
 Secret=hollo-secret,type=env,target=SECRET_KEY
 AutoUpdate=registry
 
+[Service]
+Restart=on-failure
+
 [Install]
 WantedBy=default.target

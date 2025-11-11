@@ -9,5 +9,8 @@ Network=zero-trust.network
 Secret=cloudflared-tunnel-token,type=env,target=TUNNEL_TOKEN
 AutoUpdate=registry
 
+[Service]
+Restart=on-failure
+
 [Install]
 WantedBy=default.target
