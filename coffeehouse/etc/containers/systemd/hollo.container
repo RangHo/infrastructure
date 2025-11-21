@@ -15,6 +15,7 @@ Environment=S3_ENDPOINT_URL=http://s3.internal:7070
 Environment=S3_FORCE_PATH_STYLE=true
 Environment=S3_REGION=us-east-1
 Environment=STORAGE_URL_BASE=https://blobs.rangho.moe/hollo/
+Environment=TIMELINE_INBOXES=true
 Pod=fediverse.pod
 Secret=hollo-db-url,type=env,target=DATABASE_URL
 Secret=hollo-s3-access,type=env,target=AWS_ACCESS_KEY_ID
