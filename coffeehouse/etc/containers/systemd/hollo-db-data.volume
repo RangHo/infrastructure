@@ -1,8 +1,0 @@
-[Unit]
-Description=Data Volume for PostgreSQL Database for Hollo
-
-[Volume]
-Driver=local
-
-[Install]
-WantedBy=default.target
