@@ -17,6 +17,15 @@ jobs:
       ign: coffeehouse
     secrets: inherit
 
+  build-millhouse:
+    name: Build Butane configuration for Millhouse
+    uses: ./.github/workflows/build-butane.yml
+    with:
+      basedir: millhouse
+      bu: main
+      ign: millhouse
+    secrets: inherit
+
   build-roastery:
     name: Build Butane configuration for Roastery
     uses: ./.github/workflows/build-butane.yml
@@ -30,6 +39,7 @@ jobs:
     name: Deploy the artifacts to GitHub Pages
     needs:
       - build-coffeehouse
+      - build-millhouse
       - build-roastery
     uses: ./.github/workflows/deploy-pages.yml
     secrets: inherit
