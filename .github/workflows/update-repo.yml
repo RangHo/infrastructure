@@ -8,6 +8,15 @@ permissions:
   id-token: write
 
 jobs:
+  build-cafe-lounge:
+    name: Build Butane configuration for Cafe-Lounge
+    uses: ./.github/workflows/build-butane.yml
+    with:
+      basedir: cafe-lounge
+      bu: main
+      ign: cafe-lounge
+    secrets: inherit
+
   build-coffeehouse:
     name: Build Butane configuration for Coffeehouse
     uses: ./.github/workflows/build-butane.yml
@@ -38,6 +47,7 @@ jobs:
   deploy-pages:
     name: Deploy the artifacts to GitHub Pages
     needs:
+      - build-cafe-lounge
       - build-coffeehouse
       - build-millhouse
       - build-roastery
