@@ -1,0 +1,31 @@
+#!ipxe
+
+# Define target OS info
+set BASEURL https://by.rangho.dev/jumpstart/pxe
+set STREAM stable
+set ARCH x86_64
+set QUERY_PARAM ?stream=${STREAM}&arch=${ARCH}
+
+# Define base urls
+set KERNEL ${BASEURL}/kernel${QUERY_PARAM}
+set INITRD ${BASEURL}/initramfs${QUERY_PARAM}
+set ROOTFS ${BASEURL}/rootfs${QUERY_PARAM}
+set CONFIG https://rangho.dev/infrastructure/cafe-lounge.ign
+
+# Obtain network address using DHCP
+:retry
+ifconf || goto retry
+ifstat
+
+# Load kernel
+kernel ${KERNEL} initrd=main coreos.live.rootfs_url=${ROOTFS} ignition.firstboot ignition.platform.id=metal ignition.config.url=${CONFIG} || goto error
+initrd --name main ${INITRD} || goto error
+
+# Boot
+boot || echo Failed to boot.
+
+# Handle errors
+:error
+echo An error has occured! Powering off...
+sleep 10
+poweroff

@@ -1,0 +1,32 @@
+# -*- mode: yaml -*-
+variant: fcos
+version: 1.6.0
+
+ignition:
+  config:
+    merge:
+      - source: https://by.rangho.dev/jumpstart/passwd/from-github?name=RangHo
+
+storage:
+  disks:
+    - device: /dev/nvme0n1
+      wipe_table: true # it is fine to wipe since we will always netboot
+      partitions:
+        - label: var
+          wipe_partition_entry: true
+
+  filesystems:
+    - device: /dev/disk/by-partlabel/var
+      path: /var
+      format: ext4
+      wipe_filesystem: false
+      with_mount_unit: true
+
+  trees:
+    - path: /etc
+      local: etc
+
+systemd:
+  units:
+    - name: podman-auto-update.service
+      enabled: true
