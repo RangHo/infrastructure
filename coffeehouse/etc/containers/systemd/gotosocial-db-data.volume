@@ -1,0 +1,8 @@
+[Unit]
+Description=Data Volume for PostgreSQL Database for GoToSocial
+
+[Volume]
+Driver=local
+
+[Install]
+WantedBy=default.target

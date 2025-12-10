@@ -1,0 +1,25 @@
+[Unit]
+Description=Containerized GoToSocial Instance
+Requires=generate-secret@gotosocial-db-password.service
+Requires=gotosocial-db.container
+
+[Container]
+ContainerName=gotosocial
+Image=docker.io/superseriousbusiness/gotosocial:latest
+Environment=GTS_CONFIG_PATH=/gotosocial/config.yaml
+Environment=GTS_DB_TYPE=postgres
+Environment=GTS_DB_ADDRESS=gotosocial-db
+Environment=GTS_DB_PORT=5432
+Environment=GTS_DB_USER=postgres
+Environment=GTS_DB_DATABASE=postgres
+Pod=fediverse.pod
+Secret=gotosocial-db-password,type=env,target=GTS_DB_PASSWORD
+Volume=/etc/gotosocial/config.yaml:/gotosocial/config.yaml:z
+Volume=gotosocial-data.volume:/gotosocial/storage
+AutoUpdate=registry
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
