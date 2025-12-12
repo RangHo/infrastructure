@@ -50,6 +50,7 @@ jobs:
 
   deploy-pages:
     name: Deploy the artifacts to GitHub Pages
+    if: github.ref == 'refs/heads/main'
     needs:
       - build-cafe-lounge
       - build-coffeehouse
