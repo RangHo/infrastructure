@@ -1,0 +1,174 @@
+# Logging facilities.
+log-level: "info" # "trace" | "debug" | "info" | "warn" | "error" | "fatal"
+log-db-queries: false # boolean
+log-client-ip: true # boolean
+log-format: "logfmt" # "logfmt" | "json"
+log-timestamp-format: "02/01/2006 15:04:05.000" # time.Layout
+
+# Application settings.
+application-name: "gotosocial" # string
+
+# Landing page users.
+landing-page-user: "" # string
+
+# Federation hostnames.
+host: "fedi.rangho.moe" # string
+account-domain: "rangho.moe" # string
+
+# Network settings.
+protocol: "https" # "http" | "https"
+bind-address: "0.0.0.0" # string
+port: 8080 # int
+trusted-proxies: # string[]
+  - "127.0.0.1/32"
+  - "::1"
+  - "127.18.1.0/24"
+
+# Database configurations.
+#db-type: "postgres" # "postgres" | "sqlite"
+#db-address: "gotosocial-db" # string
+#db-port: 5432 # int
+#db-user: "postgres" # string
+#db-password: "" # string
+#db-database: "postgres" # string
+#db-tls-mode: "disable" # "disable" | "enable" | "require"
+#db-tls-ca-cert: "" # path
+#db-max-open-conns-multiplier: 8 # int
+#db-sqlite-journal-mode: "" # "DELETE" | "TRUNCATE" | "PERSIST" | "MEMORY" | "WAL" | "OFF" | ""
+#db-sqlite-synchronous: "NORMAL" # "OFF" | "NORMAL" | "FULL" | "EXTRA" | ""
+#db-sqlite-cache-size: "8MiB" # size
+#db-sqlite-busy-timeout: "30m" # duration
+#db-postgres-connection-string: "" # string
+
+# Cache behavior tweaks.
+cache:
+  memory-target: "100MiB" # "${int}MiB" | "${int}GiB"
+  s3-object-info: 8000 # int
+
+# Web-related configurations.
+web-template-base-dir: "./web/template/" # path
+web-asset-base-dir: "./web/assets/" # path
+
+# Instance configurations.
+instance-languages: ["ko", "en", "ja"] # bcp47[]
+instance-federation-mode: "blocklist" # "blocklist" | "allowlist"
+instance-federation-spam-filter: false # boolean
+instance-expose-peers: false # boolean
+instance-expose-blocklist: false # boolean
+instance-expose-blocklist-web: false # boolean
+instance-expose-allowlist: false # boolean
+instance-expose-allowlist-web: false # boolean
+instance-expose-public-timeline: false # boolean
+instance-expose-custom-emojis: false # boolean
+instance-deliver-to-shared-inboxes: true # boolean
+instance-inject-mastodon-version: true # boolean
+instance-subscriptions-process-from: "23:00" # time
+instance-subscriptions-process-every: "24h" # duration
+instance-stats-mode: "" # "" | "zero" | "serve" | "baffle"
+instance-allow-backdating-statuses: true # boolean
+
+# Account configurations.
+accounts-registration-open: false # boolean
+accounts-reason-required: true # boolean
+accounts-registration-daily-limit: 1 # int
+accounts-registration-backlog-limit: 1 # int
+accounts-allow-custom-css: true # boolean
+accounts-custom-css-length: 10000 # int
+accounts-max-profile-fields: 6 # int
+
+# Media settings.
+media-local-max-size: 40MiB # size
+media-image-size-hint: 5MiB # size
+media-video-size-hint: 40MiB # size
+media-remote-max-size: 40MiB # size
+media-thumb-max-pixels: 512 # int
+media-description-min-chars: 0 # int
+media-description-max-chars: 5000 # int
+media-emoji-local-max-size: 50KiB # size
+media-emoji-remote-max-size: 100KiB # size
+media-ffmpeg-pool-size: 2 # int
+media-remote-cache-days: 30 # int
+media-cleanup-from: "00:00" # time
+media-cleanup-every: "72h" # duration
+
+# Storage configurations.
+storage-backend: "local" # "local" | "s3"
+storage-local-base-path: "/gotosocial/storage" # path
+storage-s3-endpoint: "s3.internal:7070" # string
+storage-s3-proxy: false
+storage-s3-redirect-url: "https://asset.rangho.moe" # url
+storage-s3-use-ssl: false # boolean
+#storage-s3-access-key: "" # string
+#storage-s3-secret-key: "" # string
+storage-s3-bucket: "gotosocial" # string
+storage-s3-bucket-lookup: "auto" # "path" | "dns" | "auto"
+
+# Status configurations.
+statuses-max-chars: 5000 # int
+statuses-poll-max-options: 6 # int
+statuses-poll-option-max-chars: 50 # int
+statuses-media-max-files: 6 # int
+scheduled-statuses-max-total: 300 # int
+scheduled-statuses-max-daily: 25 # int
+
+# Let's Encrypt configurations.
+letsencrypt-enabled: false # boolean
+letsencrypt-port: 80 # int
+letsencrypt-cert-dir: "/gotosocial/storage/certs" # path
+letsencrypt-email-address: "" # string
+
+# Manual TLS configurations.
+tls-certificate-chain: "" # path
+tls-certificate-key: "" # path
+
+# OIDC configurations.
+oidc-enabled: false # boolean
+oidc-idp-name: "" # string
+oidc-skip-verification: false # boolean
+oidc-issuer: "" # url
+oidc-client-id: "" # string
+oidc-client-secret: "" # string
+oidc-scopes: # string[]
+  - "openid"
+  - "email"
+  - "profile"
+  - "groups"
+oidc-link-existing: false # boolean
+oidc-allowed-groups: [] # string[]
+oidc-admin-groups: [] # string[]
+
+# Email configurations.
+smtp-host: "" # string
+smtp-port: 0 # int
+smtp-username: "" # string
+smtp-password: "" # string
+smtp-from: "" # string
+smtp-disclose-recipients: false # boolean
+
+# Syslog configurations.
+syslog-enabled: false # boolean
+syslog-protocol: "udp" # "udp" | "tcp" | ""
+syslog-address: "localhost:514" # string
+
+# Observability/metrics settings.
+request-id-header: "X-Request-Id" # string
+tracing-enabled: false # boolean
+metrics-enabled: false # boolean
+
+# HTTP client settings.
+http-client:
+  timeout: "30s" # duration
+  allow-ips: [] # IP[]
+  block-ips: [] # IP[]
+  tls-insecure-skip-verify: false # boolean
+  insecure-outgoing: false # boolean
+
+# Some advanced settings.
+advanced-cookies-samesite: "lax" # "lax" | "strict"
+advanced-rate-limit-requests: 300 # int
+advanced-rate-limit-exceptions: [] # string[]
+advanced-throttling-multiplier: 8 # int
+advanced-throttling-retry-after: "30s" # duration
+advanced-sender-multiplier: 2 # int
+advanced-csp-extra-uris: [] # string[]
+advanced-header-filter-mode: "" # "block" | "allow" | ""

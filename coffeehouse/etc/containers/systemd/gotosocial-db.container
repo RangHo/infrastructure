@@ -1,0 +1,17 @@
+[Unit]
+Description=Containerized PostgreSQL Database for GoToSocial
+Requires=generate-secret@gotosocial-db-password.service
+
+[Container]
+ContainerName=gotosocial-db
+Image=docker.io/library/postgres:18-alpine
+Pod=fediverse.pod
+Secret=gotosocial-db-password,type=env,target=POSTGRES_PASSWORD
+Volume=gotosocial-db-data.volume:/var/lib/postgresql/data
+AutoUpdate=registry
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
