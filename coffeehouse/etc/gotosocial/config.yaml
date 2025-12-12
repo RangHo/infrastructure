@@ -96,7 +96,7 @@ storage-backend: "s3" # "local" | "s3"
 storage-local-base-path: "/gotosocial/storage" # path
 storage-s3-endpoint: "s3.internal:7070" # string
 storage-s3-proxy: false
-storage-s3-redirect-url: "https://asset.rangho.moe" # url
+storage-s3-redirect-url: "https://asset.rangho.moe/gotosocial" # url
 storage-s3-use-ssl: false # boolean
 #storage-s3-access-key: "" # string
 #storage-s3-secret-key: "" # string
