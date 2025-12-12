@@ -12,8 +12,10 @@ Environment=GTS_DB_ADDRESS=gotosocial-db
 Environment=GTS_DB_PORT=5432
 Environment=GTS_DB_USER=postgres
 Environment=GTS_DB_DATABASE=postgres
+Environment=GTS_STORAGE_S3_ACCESS_KEY=gotosocial
 Pod=fediverse.pod
 Secret=gotosocial-db-password,type=env,target=GTS_DB_PASSWORD
+Secret=gotosocial-s3-secret,type=env,target=GTS_STORAGE_S3_SECRET_KEY
 Volume=/etc/gotosocial/config.yaml:/gotosocial/config.yaml:z
 Volume=gotosocial-data.volume:/gotosocial/storage
 AutoUpdate=registry

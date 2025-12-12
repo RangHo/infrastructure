@@ -92,7 +92,7 @@ media-cleanup-from: "00:00" # time
 media-cleanup-every: "72h" # duration
 
 # Storage configurations.
-storage-backend: "local" # "local" | "s3"
+storage-backend: "s3" # "local" | "s3"
 storage-local-base-path: "/gotosocial/storage" # path
 storage-s3-endpoint: "s3.internal:7070" # string
 storage-s3-proxy: false
