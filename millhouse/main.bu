@@ -28,5 +28,5 @@ storage:
 
 systemd:
   units:
-    - name: podman-auto-update.service
+    - name: podman-auto-update.timer
       enabled: true
