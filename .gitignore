@@ -1,0 +1,6 @@
+# Terraform/OpenTofu related files.
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfvars
+override.tf
