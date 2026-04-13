@@ -4,3 +4,6 @@
 *.tfstate
 *.tfvars
 override.tf
+
+# Local toolings.
+mise.local.toml

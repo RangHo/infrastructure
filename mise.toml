@@ -1,3 +1,2 @@
 [tools]
-"github:opentofu/tofu-ls" = "latest"
 opentofu = "latest"
