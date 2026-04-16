@@ -6,12 +6,19 @@
   };
 
   outputs =
-    { self, nixpkgs }:
+    { self, nixpkgs, ... }:
+    let
+      hello = "world";
+    in
     {
-
-      packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-
-      packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
-
+      nixosConfigurations = {
+        coffeebean = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
+            ./machines/coffeebean/configuration.nix
+          ];
+        };
+      };
     };
 }
