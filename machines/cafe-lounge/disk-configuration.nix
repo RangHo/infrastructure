@@ -59,7 +59,7 @@
             swap = {
               swapfile.size = "1G";
               swapfile1.size = "1G";
-            }
+            };
           };
         };
       };
