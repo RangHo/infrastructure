@@ -5,5 +5,8 @@
 *.tfvars
 override.tf
 
+# Nix result artifacts.
+result
+
 # Local toolings.
 mise.local.toml
