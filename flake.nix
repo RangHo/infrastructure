@@ -9,10 +9,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    impermenance = {
+    impermanence = {
       url = "github:nix-community/impermanence";
-      inputs.nixpkgs.follows = "";
-      inputs.home-manager.follows = "";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     srvos = {
@@ -25,7 +24,9 @@
     {
       self,
       nixpkgs,
+      disko,
       srvos,
+      impermanence,
       ...
     }@inputs:
     let
@@ -35,6 +36,8 @@
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            disko.nixosModules.disko
+            impermanence.nixosModules.impermanence
             srvos.nixosModules.server
             srvos.nixosModules.mixins-mdns
             srvos.nixosModules.mixins-systemd-boot
