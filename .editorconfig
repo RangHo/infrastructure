@@ -8,6 +8,10 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-# YAML files
+# YAML files.
 [*.{yml,yaml,bu}]
+indent_size = 2
+
+# Nix files.
+[*.nix]
 indent_size = 2
