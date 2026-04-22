@@ -16,6 +16,7 @@
 
   users.users.barista = {
     isNormalUser = true;
+    createHome = true;
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHgkQFjQ6JaP2QEgtUcDMPgTiq9caOO3/VGfpOO6KLF3"
