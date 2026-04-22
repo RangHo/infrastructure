@@ -24,7 +24,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJtbzeoLkDjJFTWVM0mAf6yjxYEzWdxEFKCKc/1uw3EI"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJaKM7BaA1JNQGnJMfRMVylUt1ilvboTPPKgQkx89muw"
     ];
-  }
+  };
 
   # First version of NixOS installed on this machine. Don't change this after the initial install!
   system.stateVersion = "26.05";
