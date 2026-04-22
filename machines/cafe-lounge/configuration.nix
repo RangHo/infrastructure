@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disk-configuration.nix
+    ./impermanence.nix
   ];
 
   networking.hostName = "cafe-lounge";
