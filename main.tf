@@ -8,7 +8,7 @@ terraform {
 }
 
 module "cloudflare" {
-  source = "./modules/cloudflare"
+  source = "./modules/terraform/cloudflare"
 
   api_token  = var.cloudflare_api_token
   domain     = var.domain
