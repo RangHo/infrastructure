@@ -30,14 +30,14 @@
                   "/@" = {
                     mountpoint = "/";
                   };
-                  "/@var" = {
-                    mountpoint = "/var";
+                  "/@nix" = {
+                    mountpoint = "/nix";
                     mountOptions = [
                       "compress=zstd"
                     ];
                   };
-                  "/@nix" = {
-                    mountpoint = "/nix";
+                  "/@var" = {
+                    mountpoint = "/var";
                     mountOptions = [
                       "compress=zstd"
                     ];
@@ -57,10 +57,10 @@
                     };
                   };
                 };
-              };
-              swap = {
-                swapfile.size = "1G";
-                swapfile1.size = "1G";
+                swap = {
+                  swapfile.size = "1G";
+                  swapfile1.size = "1G";
+                };
               };
             };
           };
