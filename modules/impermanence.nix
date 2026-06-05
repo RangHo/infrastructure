@@ -1,9 +1,14 @@
 {
+  inputs,
   pkgs,
   ...
 }:
 
 {
+  imports = [
+    inputs.impermanence.nixosModules.impermanence
+  ];
+
   boot.initrd.systemd = {
     services.impermanence-btrfs-rolling-root = {
       description = "Archiving existing BTRFS root subvolume and creating a fresh one";

@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   config,
   ...
@@ -9,6 +10,10 @@ let
   diskName = config.partitioning.diskName;
 in
 {
+  imports = [
+    inputs.disko.nixosModules.disko
+  ];
+
   options.partitioning.diskName = mkOption {
     type = types.str;
   };
