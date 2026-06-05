@@ -31,6 +31,7 @@
     }@inputs:
     let
       inherit (self) outputs;
+      vars = import ./variables;
       mkServer =
         configuration:
         nixpkgs.lib.nixosSystem {
@@ -44,7 +45,7 @@
             srvos.nixosModules.mixins-terminfo
             configuration
           ];
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs outputs vars; };
         };
       mkISO =
         configuration:
@@ -54,7 +55,7 @@
             (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
             configuration
           ];
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs outputs vars; };
         };
     in
     {
