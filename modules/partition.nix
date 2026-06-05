@@ -1,0 +1,89 @@
+{
+  lib,
+  config,
+  ...
+}:
+
+with lib;
+let
+  diskName = config.partitioning.diskName;
+in
+{
+  options.partitioning.diskName = mkOption {
+    type = types.str;
+  };
+
+  config = {
+    disko.devices = {
+      disk = {
+        main = {
+          type = "disk";
+          device = diskName;
+          content = {
+            type = "gpt";
+            partitions = {
+              esp = {
+                priority = 1;
+                name = "EFI System Partition";
+                start = "1M";
+                end = "1G";
+                type = "EF00";
+                content = {
+                  type = "filesystem";
+                  format = "vfat";
+                  mountpoint = "/boot";
+                  mountOptions = [ "umask=0077" ];
+                };
+              };
+              root = {
+                size = "100%";
+                content = {
+                  type = "btrfs";
+                  extraArgs = [ "-f" ];
+                  mountpoint = "/btrfs";
+                  subvolumes = {
+                    "/@" = {
+                      mountpoint = "/";
+                    };
+                    "/@nix" = {
+                      mountpoint = "/nix";
+                      mountOptions = [
+                        "compress=zstd"
+                      ];
+                    };
+                    "/@var" = {
+                      mountpoint = "/var";
+                      mountOptions = [
+                        "compress=zstd"
+                      ];
+                    };
+                    "/@keep" = {
+                      mountpoint = "/keep";
+                      mountOptions = [
+                        "compress=zstd"
+                      ];
+                    };
+                    "/@swap" = {
+                      mountpoint = "/swap";
+                      swap = {
+                        swapfile.size = "1G";
+                        swapfile2.size = "1G";
+                        swapfile2.path = "rel-path";
+                      };
+                    };
+                  };
+                  swap = {
+                    swapfile.size = "1G";
+                    swapfile1.size = "1G";
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
+    };
+    fileSystems."/var".neededForBoot = true;
+    fileSystems."/keep".neededForBoot = true;
+  };
+}

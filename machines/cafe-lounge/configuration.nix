@@ -1,30 +1,24 @@
 {
-  config,
   lib,
   pkgs,
+  vars,
+  config,
   ...
 }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ./disk-configuration.nix
-    ./impermanence.nix
+    ../../modules/employee.nix
+    ../../modules/impermanence.nix
+    ../../modules/partition.nix
   ];
 
   networking.hostName = "cafe-lounge";
+  partitioning.diskName = "/dev/disk/by-id/nvme-GV-256_2280_GD50514111323";
 
-  users.users.barista = {
-    isNormalUser = true;
-    createHome = true;
-    extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHgkQFjQ6JaP2QEgtUcDMPgTiq9caOO3/VGfpOO6KLF3"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdHfaBptdCqg4IGlig/pvZCOD1gBGFsY/+f8r43IXGu"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJKJH943Uup3903/UPIWACBPOJXjkmQo1ROY4zyzFdf5"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJtbzeoLkDjJFTWVM0mAf6yjxYEzWdxEFKCKc/1uw3EI"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJaKM7BaA1JNQGnJMfRMVylUt1ilvboTPPKgQkx89muw"
-    ];
+  homelab = {
+    sshAuthorizedKeys = vars.sshKeys.yirgacheffe;
   };
 
   # First version of NixOS installed on this machine. Don't change this after the initial install!
