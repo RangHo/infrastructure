@@ -24,9 +24,6 @@
     {
       self,
       nixpkgs,
-      disko,
-      srvos,
-      impermanence,
       ...
     }@inputs:
     let
@@ -37,10 +34,7 @@
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            srvos.nixosModules.server
-            srvos.nixosModules.mixins-mdns
-            srvos.nixosModules.mixins-systemd-boot
-            srvos.nixosModules.mixins-terminfo
+            ./modules/server.nix
             configuration
           ];
           specialArgs = { inherit inputs outputs vars; };
@@ -60,6 +54,7 @@
       nixosConfigurations = {
         coffeebean = mkISO ./machines/coffeebean/configuration.nix;
         cafe-lounge = mkServer ./machines/cafe-lounge/configuration.nix;
+        millhouse = mkServer ./machines/millhouse/configuration.nix;
       };
     };
 }

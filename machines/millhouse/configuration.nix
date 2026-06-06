@@ -11,8 +11,8 @@
     ../../modules/partition.nix
   ];
 
-  networking.hostName = "cafe-lounge";
-  partitioning.diskName = "/dev/disk/by-id/nvme-GV-256_2280_GD50514111323";
+  networking.hostName = "millhouse";
+  partitioning.diskName = "/dev/disk/by-id/ata-N900-512_AA000000000000000002";
 
   homelab = {
     sshAuthorizedKeys = vars.sshKeys.yirgacheffe;
