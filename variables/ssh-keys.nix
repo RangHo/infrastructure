@@ -10,7 +10,5 @@ in
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICBkYuM3vYz+OnY3Afrm+nLQhldBg4FL8N8MeKIB/7+6"
   ];
 
-  github = builtins.filter builtins.isString (
-    builtins.split "\n" githubKeys
-  );
+  github = builtins.filter builtins.isString (builtins.split "\n" githubKeys);
 }

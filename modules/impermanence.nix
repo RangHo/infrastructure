@@ -26,28 +26,28 @@
       ];
 
       script = ''
-        mkdir /btrfs_tmp
-        mount /dev/disk/by-partlabel/disk-main-root /btrfs_tmp
-        if [[ -e /btrfs_tmp/root ]]; then
-            mkdir -p /btrfs_tmp/backups
-            timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")
-            mv /btrfs_tmp/root "/btrfs_tmp/backups/$timestamp"
+        mkdir /btrfs
+        mount /dev/disk/by-partlabel/disk-main-root /btrfs
+        if [[ -e /btrfs/root ]]; then
+            mkdir -p /btrfs/backups
+            timestamp=$(date --date="@$(stat -c %Y /btrfs/root)" "+%Y-%m-%-d_%H:%M:%S")
+            mv /btrfs/root "/btrfs_tmp/backups/$timestamp"
         fi
 
         delete_subvolume_recursively() {
             IFS=$'\n'
             for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
-                delete_subvolume_recursively "/btrfs_tmp/$i"
+                delete_subvolume_recursively "/btrfs/$i"
             done
             btrfs subvolume delete "$1"
         }
 
-        for i in $(find /btrfs_tmp/backups/ -maxdepth 1 -mtime +30); do
+        for i in $(find /btrfs/backups/ -maxdepth 1 -mtime +30); do
             delete_subvolume_recursively "$i"
         done
 
-        btrfs subvolume create /btrfs_tmp/root
-        umount /btrfs_tmp
+        btrfs subvolume create /btrfs/root
+        umount /btrfs
       '';
     };
     extraBin = {
