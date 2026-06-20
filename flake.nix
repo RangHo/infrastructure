@@ -54,7 +54,9 @@
       nixosConfigurations = {
         coffeebean = mkISO ./machines/coffeebean/configuration.nix;
         cafe-lounge = mkServer ./machines/cafe-lounge/configuration.nix;
+        clubhouse = mkServer ./machines/clubhouse/configuration.nix;
         millhouse = mkServer ./machines/millhouse/configuration.nix;
+        roastery = mkServer ./machines/roastery/configuration.nix;
       };
     };
 }
