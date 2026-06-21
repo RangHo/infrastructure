@@ -1,9 +1,0 @@
-[Unit]
-Description=Fediverse Provider
-
-[Pod]
-PodName=fediverse
-Network=zero-trust.network
-
-[Install]
-WantedBy=default.target
