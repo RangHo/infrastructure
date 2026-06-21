@@ -11,7 +11,7 @@
     ../../modules/partition.nix
   ];
 
-  networking.hostName = "cafe-lounge";
+  networking.hostName = "breakroom";
   partitioning.diskName = "/dev/disk/by-id/nvme-GV-256_2280_GD50514111323";
 
   homelab = {
