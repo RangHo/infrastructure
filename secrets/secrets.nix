@@ -13,6 +13,7 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUP0YtdnHtdfbBRRnJfmtjFna4Wtc9mYl6McyZCIceP"
   ];
   roastery = [ ];
+  hosts = breakroom ++ clubhouse ++ millhouse ++ roastery;
 in
 {
   # Credential files for Cloudflare Tunnels.
@@ -20,4 +21,6 @@ in
   "clubhouse-cloudflared-credential-file.age".publicKeys = yirgacheffe ++ clubhouse;
   "millhouse-cloudflared-credential-file.age".publicKeys = yirgacheffe ++ millhouse;
   "roastery-cloudflared-credential-file.age".publicKeys = yirgacheffe ++ roastery;
+
+  "vaultwarden-secrets.age".publicKeys = hosts;
 }
