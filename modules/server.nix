@@ -6,6 +6,7 @@
 
 {
   imports = [
+    inputs.agenix.nixosModules.default
     inputs.srvos.nixosModules.server
     inputs.srvos.nixosModules.mixins-mdns
     inputs.srvos.nixosModules.mixins-systemd-boot
