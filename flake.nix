@@ -58,12 +58,8 @@
           specialArgs = { inherit inputs outputs vars; };
         };
 
-      collectTunnelRoutes =
-        configuration:
-        let
-          cloudflaredCfg = configuration.config.networking.cloudflared;
-        in
-        cloudflaredCfg;
+      collectTunnelRoutes = configuration: configuration.config.networking.cloudflared.tunnels;
+
       nixosHosts = {
         breakroom = ./machines/breakroom/configuration.nix;
         clubhouse = ./machines/clubhouse/configuration.nix;
@@ -77,8 +73,6 @@
         coffeebean = mkISO ./machines/coffeebean/configuration.nix;
       }
       // nixpkgs.lib.mapAttrs (_: configuration: mkServer configuration) nixosHosts;
-
-      millhouseRoutes = collectTunnelRoutes self.nixosConfigurations.millhouse;
 
       tunnelRoutes = nixpkgs.lib.mapAttrs (
         hostName: _: collectTunnelRoutes self.nixosConfigurations.${hostName}
