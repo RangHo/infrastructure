@@ -1,5 +1,4 @@
 {
-  outputs,
   config,
   vars,
   ...
