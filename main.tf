@@ -1,6 +1,21 @@
-module "origins" {
-  source = "./domains"
+terraform {
+  required_providers {
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 5"
+    }
+  }
+}
 
-  base_domain        = var.domain
-  cloudflare_zone_id = var.cloudflare_zone_id
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
+}
+
+module "domains" {
+  source = "./domains"
+    providers = { cloudflare = cloudflare }
+
+  account_id         = var.cloudflare_account_id
+  moe_rangho_zone_id = var.moe_rangho_zone_id
+  tunnel_routes_file = "${path.root}/generated/tunnel-routes.json"
 }

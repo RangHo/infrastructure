@@ -58,7 +58,10 @@
           specialArgs = { inherit inputs outputs vars; };
         };
 
-      collectTunnelRoutes = configuration: configuration.config.networking.cloudflared.tunnels;
+      collectTunnelRoutes = configuration: {
+        uuid = configuration.config.networking.cloudflared.uuid;
+        tunnels = configuration.config.networking.cloudflared.tunnels;
+      };
 
       nixosHosts = {
         breakroom = ./machines/breakroom/configuration.nix;
