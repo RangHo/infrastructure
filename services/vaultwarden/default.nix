@@ -5,6 +5,8 @@
 
 let
   cfg = config.homelab.vaultwarden;
+  domain = "vault.rangho.moe";
+  port = 58504;
 in
 {
   config = {
@@ -12,16 +14,21 @@ in
 
     services.vaultwarden = {
       enable = true;
-      domain = "vault.rangho.moe";
       config = {
-        SIGNUPS_ALLOWED = false;
+        domain = "https://${domain}";
+        signupsAllowed = false;
+
+        rocketAddress = "127.0.0.1";
+        rocketPort = port;
+
+        ipHeader = "X-Forwarded-For";
       };
       environmentFile = config.age.secrets.vaultwardenSecrets.path;
     };
 
     networking.cloudflared.tunnels.vaultwarden = {
-      destination = "vault.rangho.moe";
-      service = "http://localhost:8000";
+      destination = domain;
+      service = "http://localhost:${toString port}";
     };
   };
 }
