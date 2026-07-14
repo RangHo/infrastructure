@@ -31,7 +31,7 @@
         if [[ -e /btrfs/root ]]; then
             mkdir -p /btrfs/backups
             timestamp=$(date --date="@$(stat -c %Y /btrfs/root)" "+%Y-%m-%-d_%H:%M:%S")
-            mv /btrfs/root "/btrfs_tmp/backups/$timestamp"
+            mv /btrfs/root "/btrfs/backups/$timestamp"
         fi
 
         delete_subvolume_recursively() {
