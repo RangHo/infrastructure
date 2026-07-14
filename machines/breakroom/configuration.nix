@@ -18,7 +18,7 @@
   networking = {
     hostName = "breakroom";
     cloudflared = {
-      uuid = "31496a40-ea0d-4efc-8d28-d59397710888";
+      uuid = "bc016325-c5c7-4e21-b149-2367a50b2b58";
       credentialsFile = config.age.secrets.cloudflaredCredentialsFile.path;
     };
   };
