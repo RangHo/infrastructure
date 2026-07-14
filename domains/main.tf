@@ -1,10 +1,10 @@
 terraform {
-    required_providers {
-        cloudflare = {
-            source  = "cloudflare/cloudflare"
-            version = "~> 5"
-        }
+  required_providers {
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 5"
     }
+  }
 }
 
 variable "moe_rangho_zone_id" {

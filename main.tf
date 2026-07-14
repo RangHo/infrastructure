@@ -13,7 +13,6 @@ provider "cloudflare" {
 
 module "domains" {
   source = "./domains"
-    providers = { cloudflare = cloudflare }
 
   account_id         = var.cloudflare_account_id
   moe_rangho_zone_id = var.moe_rangho_zone_id
