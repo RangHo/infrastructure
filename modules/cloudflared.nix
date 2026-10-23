@@ -46,5 +46,17 @@ with lib;
         default = "http_status:404";
       };
     };
+
+    systemd.services."cloudflared-tunnel-${cfg.uuid}" = {
+      wants = [ "network-online.target" ];
+      after = [ "network-online.target" ];
+
+      unitConfig.StartLimitIntervalSec = 0;
+
+      serviceConfig = {
+        Restart = mkForce "always";
+        RestartSec = "5s";
+      };
+    };
   };
 }
